@@ -1,0 +1,415 @@
+
+
+//practical 1.1
+/*fun main(){
+    var a:Int = 10231
+    var b:Double = 20.4
+    var c:Float = 1.123456F
+    var d:Long = 100000000000000
+    var e:Short = 320
+    var f:Byte = 127
+    var g:Char = 'V'
+    var h:Boolean = true
+    var i:String = "Darji Kishan"
+    println("20012011030 \n")
+    println("Integer value:$a")
+    println("Double value:$b")
+    println("Float value:$c")
+    println("Long value:$d")
+    println("Short value:$e")
+    println("Byte value:$f")
+    println("Char value:$g")
+    println("Boolean value:$h")
+    println("String value:$i")
+}*/
+
+//prac1.2
+/*fun main() {
+    var a: Int = 15
+    var b: Double = a.toDouble()
+    var c: String = "500"
+    var d: Int = c.toInt()
+    var e: Double = c.toDouble()
+    println("20012021001 \n")
+    println("Integer to Double : $a to $b")
+    println("String to Integer : $c to $d")
+    println("String to Double : $c to $e")
+}*/
+
+//prac1.3
+/*fun main() {
+    print("Student Enrollment: ")
+    var enr: Long = readLine()!!.toLong()
+    print("Student Name: ")
+    var name: String = readLine()!!.toString()
+    print("Student Branch: ")
+    var branch: String = readLine()!!.toString()
+    print("Student Class: ")
+    var class_name: String = readLine()!!.toString()
+    print("Student Batch: ")
+    var batch: String = readLine()!!.toString()
+    print("Student College Name: ")
+    var college_name: String = readLine()!!.toString()
+    print("Student uni Name: ")
+    var uni_name: String = readLine()!!.toString()
+    print("Student Age: ")
+    var age: Int = readLine()!!.toInt()
+    println("=================================")
+    println("Enrollment: $enr")
+    println("Name: $name")
+    println("Branch: $branch")
+    println("Class: $class_name")
+    println("Batch: $batch")
+    println("College Name: $college_name")
+    println("Uni Name: $uni_name")
+    println("Age: $age")
+}*/
+
+//prac1.4
+/*fun main()
+{
+    print("Enter Number: ")
+    var num:Int= readLine()!!.toInt()
+    println(if(num%2==0) "Num is Even" else "Num is Odd")
+}*/
+
+//prac1.5
+/*fun main()
+{
+    print("Enter Month Number: ")
+    var mon:Int= readLine()!!.toInt()
+    when(mon){
+        1->println("Jan")
+        2->println("Feb")
+        3->println("March")
+        4->println("Apr")
+        5->println("May")
+        6->println("Jun")
+        7->println("Jul")
+        8->println("Aug")
+        9->println("Sep")
+        10->println("Oct")
+        11->println("Nov")
+        12->println("Dec")
+        else->print("Enter valid Month")
+    }
+}*/
+
+//prac1.6
+/*fun main()
+{
+    println("Addition of: 111,2222,-222 is: ${operations('+',111,2222,-222)}")
+    println("Subtraction of: 111,2222,-222 is: ${operations('-',111,2222,-222)}")
+    println("Multiplication of: 111,2222,-222 is: ${operations('*',111,2222,-222)}")
+    println("Division of: 2222,111 is: ${operations('/',2222,111)}")
+}
+fun operations(op:Char,vararg numArr:Int):Int{
+    var result:Int=0
+    when(op)
+    {
+        '+'->{
+            for(num in numArr)
+            {
+                result+=num
+            }
+        }
+        '-'->{
+            result=numArr[0]
+            for (num in 1 until numArr.size)
+            {
+                result-=numArr[num]
+            }
+        }
+        '*'->{
+            result=1
+            for(num in numArr)
+            {
+                result*=num
+            }
+        }
+        '/'->{
+            result=numArr[0]
+            for (num in 1 until numArr.size)
+            {
+                result/=numArr[num]
+            }
+        }
+        else->return -1
+    }
+    return result
+}*/
+
+//prac 1.7
+/*import java.math.BigInteger
+fun main()
+{
+    print("Enter Number: ")
+    var num:BigInteger = readLine()!!.toBigInteger()
+    println("Factorial is: ${fact2(num)}")
+    println("With using tailrec Factorial is: ${fact(num)}")
+}
+tailrec fun fact(n: BigInteger, temp: BigInteger = BigInteger("1")): BigInteger {
+    return if (n == BigInteger("1")){
+        temp
+    } else {
+        fact(n-BigInteger("1"), temp*n)
+    }
+}
+fun fact2(n: BigInteger, temp: BigInteger = BigInteger("1")): BigInteger {
+    return if (n == BigInteger("1")){
+    temp
+} else {
+    fact(n-BigInteger("1"), temp*n)
+}
+}*/
+
+//prac 1.8
+/*fun main()
+{
+    println("Create Array-1 by using arrayof () method:")
+    var arr1 = arrayOf(1,2,3,4,5)
+    //joinToString
+    println(arr1.joinToString())
+    println("Create Array-2 by using Array<>():")
+    var arr2 = arrayOf<String>("D","K")
+    //contentDeepToString
+    println(arr2.contentDeepToString())
+    println("Create Array-3 by using Array<>() and lambda function:")
+    var arr3 = Array(8){i:Int->i}
+    println("*************Before Sorting Without Built-in Function***************")
+    println(arr3.joinToString())
+    for(i in 0 until arr3.size)
+    {
+        for(j in i+1 until arr3.size)
+        {
+            if(arr3[i]<arr3[j])
+            {
+                arr3[j]=arr3[j]+arr3[i]
+                arr3[i]=arr3[j]-arr3[i]
+                arr3[j]=arr3[j]-arr3[i]
+            }
+        }
+    }
+    println("*************After Sorting Without Built-in Function***************")
+    println(arr3.joinToString())
+    println("Create Array-4 by using IntArray ():")
+    var arr4 = IntArray(3)
+    //until
+    for(i in 0 until arr4.size)
+    {
+        print("a[$i]: ")
+        arr4[i]= readLine()!!.toInt()
+    }
+    println("Create Array-5 by using intArrayof () :")
+    var arr5 = intArrayOf(25,90,10,35)
+    println("*************Before Sorting With Built-in Function***************")
+    println(arr5.joinToString())
+    //Sort
+    arr5.sort()
+    println("*************After Sorting With Built-in Function***************")
+    println(arr5.joinToString())
+    println("Create 20 Array-6 by using arrayof () and intArrayof() :")
+    var arr6 = arrayOf(intArrayOf(1,2), intArrayOf(3,4,3))
+    for(i in 0 until arr6.size)
+    {
+        for(j in 0 until arr6[i].size)
+        {
+            print(arr6[i][j])
+        }
+        println()
+    }
+    //Range
+    val num = 10
+    println("*************Use In Range***************")
+    if (num in 5..10) {
+        println("in range")
+    }
+    println("*************Use Notin Range***************")
+    if(num !in 5 .. 9)
+    {
+        println("not in range")
+    }
+    //step
+    println("*************Use Step***************")
+    for (x in 1..10 step 2) {
+        print("$x ")
+    }
+    println()
+    //downTo
+    println("*************Use downTo***************")
+    for (x in 9 downTo 0 step 3) {
+        print("$x ")
+    }
+    println()
+}*/
+
+//prac 1.9
+/*fun main() {
+    var arrlist = ArrayList<Int>()
+    for(i in 0..5)
+    {
+        print("arr[$i]: ")
+        arrlist.add(readLine()!!.toInt())
+    }
+    var maxNum:Int
+    maxNum=arrlist[0]
+    for (i in arrlist) {
+        if(maxNum<i)
+        {
+            maxNum=i
+        }
+    }
+    println("Max number is: $maxNum")
+}*/
+
+//prac 1.10
+
+/*class Car(info:String,Owner:String,miles:Int,OGPrice:Double,currentPrice:Double) {
+    lateinit var info: String
+    lateinit var Owner: String
+    var miles: Int
+    var OGPrice: Double
+    var currentPrice: Double
+
+    init {
+        println("Object of class is created and Init is called")
+        this.info = info
+        this.Owner = Owner
+        this.miles = miles
+        this.OGPrice = OGPrice
+        this.currentPrice = currentPrice
+    }
+
+    fun getCarInformation(): String {
+        return info
+    }
+
+    fun getOriginalCarPrice(): Double {
+        return OGPrice
+    }
+
+    fun getCurrentCarPrice(): Double {
+        return currentPrice
+    }
+
+    fun displayCarInfo() {
+        println("----------")
+        println("Car Information: ${getCarInformation()}")
+        println("Car Owner: $Owner")
+        println("Miles Drive: $miles")
+        println("Original Car Price: ${getOriginalCarPrice()}")
+        println("Current Car Price: ${getCurrentCarPrice()}")
+        println("----------\n")
+    }
+}
+    fun main() {
+        println("Creating Car Class Object car1 in next line")
+        val car1 = Car("BMW, 2018","Aman",105, 10000.0,98950.0)
+        car1.displayCarInfo()
+        println("Creating Car Class Object car2 in next line")
+        val car2 = Car("BMW, 2019","Karan",20, 400000.0,399800.0)
+        car2.displayCarInfo()
+        // val car3 = Car("Toyota, 2017","KJS",100,1080000.0,1079000.0)
+        // val car4 = Car("Maruti, 2020","NPP",200,4000000.0,3998000.0)
+        println("\n********** ArrayList of Car **********")
+        val carlist = ArrayList<Car>()
+        carlist.add(Car("Toyota, 2017","KJS",100,1080000.0,1079000.0))
+        carlist.add(Car("Maruti, 2020","NPP",200,4000000.0,3998000.0))
+        carlist[0].displayCarInfo()
+        carlist[1].displayCarInfo()
+    }
+
+ */
+
+//prac 1.11
+
+/*fun main() {
+    val firstMatrix = Matrix(arrayOf(intArrayOf(3,-2,5), intArrayOf(3,0,4)),2,3)
+    val secondMatrix = Matrix(arrayOf(intArrayOf(2,3),intArrayOf(-9,0),
+        intArrayOf(0,4)),3,2)
+    val secondMatrix1 = Matrix(arrayOf(intArrayOf(6,3), intArrayOf(9,0),
+        intArrayOf(5,4)),3,2)
+    println("********** Addition **********")
+    println("Matrix:1 ")
+    print(secondMatrix1.toString())
+    println("Matrix:2 ")
+    print(secondMatrix.toString())
+    val thirdMatrix = secondMatrix1 + secondMatrix
+    println("Addition: \n$thirdMatrix")
+    println("********** Subtraction **********")
+    println("Matrix:1 ")
+    print(secondMatrix1)
+    println("Matrix:2 ")
+    print(secondMatrix)
+    val subtractMatrix = secondMatrix1 - secondMatrix
+    println("Subtraction: \n$subtractMatrix")
+    println("********** Multiplication **********")
+    println("Matrix:1 ")
+    print(secondMatrix1.toString())
+    println("Matrix:2 ")
+    print(secondMatrix.toString())
+    val multiplication = firstMatrix * secondMatrix
+    println("Multiplication: \n$multiplication")
+}
+class Matrix(matrix: Array<IntArray>,i:Int,j:Int){
+    var i:Int
+    var j:Int
+    lateinit var matrix : Array<IntArray>
+    init{
+        this.i = i
+        this.j = j
+        this.matrix = matrix
+    }
+    operator fun plus(p: Matrix) : Matrix {
+        val result = Array(i){IntArray(j)}
+        for(row in 0 until i){
+            for(column in 0 until j){
+                result[row][column] = matrix[row][column] + p.matrix[row][column]
+            }
+        }
+        return Matrix(result,i,j)
+    }
+    operator fun minus(p:Matrix):Matrix{
+        val result = Array(i){IntArray(j)}
+        for(row in 0 until i){
+            for(column in 0 until j){
+                result[row][column] = matrix[row][column] - p.matrix[row][column]
+            }
+        }
+        return Matrix(result,i,j)
+    }
+    operator fun times(p:Matrix):Matrix{
+        val result = Array(i){IntArray(i)}
+        for(row in 0 until i){
+            for(column in 0 until i){
+                for(k in 0 until j){
+                    result[row][column] += matrix[row][k] * p.matrix[k][column]
+                }
+            }
+        }
+        return Matrix(result,i,i)
+    }
+    override fun toString(): String {
+        var msg : String = ""
+        for(row in matrix.indices){
+            for(column in 0 until matrix[row].size){msg += "${matrix[row][column]} "
+            }
+            msg += "\n"
+        }
+        return msg
+    }
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
